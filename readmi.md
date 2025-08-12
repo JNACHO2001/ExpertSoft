@@ -33,3 +33,9 @@
 12. Start server with `node app.js`.
 13. Test API with Postman or curl.
 
+
+### autor
+jose gomez
+link:https://github.com/JNACHO2001/ExpertSoft.git
+branch;develop
+
