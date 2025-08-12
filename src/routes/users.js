@@ -1,7 +1,11 @@
 import express from 'express';
 import conection from '../bd/db.js';
+import cors from "cors"
 
-const router = express.Router();
+const router = express();
+router.use(cors());
+
+router.use(express.json());
 
 router.get('/', (req, res) => {
   const sql = 'SELECT *FROM users';
@@ -11,6 +15,7 @@ router.get('/', (req, res) => {
       return res.status(500).json({ message: 'Error obteniendo users' });
     }
     res.json(results);
+    
   });
 });
 
@@ -46,9 +51,9 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const { id } = req.params;
-  const { name, identiti, addres,phone,email,plataform  } = req.body;
+  const { name_user, identiti, addres,phone,email,plataform  } = req.body;
   const sql = 'UPDATE users SET name_user = ?, identiti = ?, addres = ?,phone=?,email=? , plataform=?  WHERE id = ?';
-  conection.query(sql, [name, identiti, addres,phone,email,plataform,id], (err, result) => {
+  conection.query(sql, [name_user, identiti, addres,phone,email,plataform,id], (err, result) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ message: 'Error actualizando user' });
@@ -76,4 +81,6 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-export default router;
+router.listen(3000, () => {
+  console.log(`Servidor corriendo en http://localhost:3000`);
+});

@@ -11,6 +11,7 @@ conection.connect((error) => {
   if (error) {
     console.log("no se pudo conectar", error);
   }
+  console.log("**conectada**")
 });
 
 export default conection;
