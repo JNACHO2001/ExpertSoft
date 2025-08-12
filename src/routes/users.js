@@ -1,10 +1,10 @@
 import express from 'express';
-import conection from '../bd/db';
+import conection from '../bd/db.js';
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const sql = 'SELECT * FROM users';
+  const sql = 'SELECT *FROM users';
   conection.query(sql, (err, results) => {
     if (err) {
       console.error(err);
@@ -32,9 +32,9 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  const { nombre, descripcion, precio } = req.body;
-  const sql = 'INSERT INTO users (nombre, descripcion, precio) VALUES (?, ?, ?)';
-  conection.query(sql, [nombre, descripcion, precio], (err, result) => {
+  const { name, identiti, addres,phone,email,plataform } = req.body;
+  const sql = 'INSERT INTO users (name_user, identiti,addres,phone,email,plataform) VALUES (?, ?, ?,?,?,?)';
+  conection.query(sql, [name, identiti, addres,phone,email,plataform ], (err, result) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ message: 'Error creando user' });
@@ -46,9 +46,9 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const { id } = req.params;
-  const { nombre, descripcion, precio } = req.body;
-  const sql = 'UPDATE users SET nombre = ?, descripcion = ?, precio = ? WHERE id = ?';
-  conection.query(sql, [nombre, descripcion, precio, id], (err, result) => {
+  const { name, identiti, addres,phone,email,plataform  } = req.body;
+  const sql = 'UPDATE users SET name_user = ?, identiti = ?, addres = ?,phone=?,email=? , plataform=?  WHERE id = ?';
+  conection.query(sql, [name, identiti, addres,phone,email,plataform,id], (err, result) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ message: 'Error actualizando user' });
