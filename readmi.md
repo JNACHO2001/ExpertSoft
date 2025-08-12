@@ -1,10 +1,10 @@
-Backend REST Project for data management
+# Backend REST Project for data management
 
-Description
+## Description
 
-This project makes a REST API. The API can create, read, update and delete data. The backend gets, processes and answers HTTP requests. It works with a database and can do many operations.
+ This project makes a REST API. The API can create, read, update and delete data. The backend gets, processes and answers HTTP requests. It works with a database and can do many operations.
 
-Technologies and libraries used
+## Technologies and libraries used
 
 - Node.js to run backend code.
 - Express to make HTTP server and routes.
@@ -13,7 +13,7 @@ Technologies and libraries used
 - cors to allow requests from other places.
 - csv-parser to read CSV files.
 
-Steps to set up and run the project
+## Steps to set up and run the project
 
 1. Make a project folder and go inside.
 2. Run `npm init -y` to create package.json.
@@ -33,4 +33,3 @@ Steps to set up and run the project
 12. Start server with `node app.js`.
 13. Test API with Postman or curl.
 
-You have a working backend with Express and MySQL using createConnection and callbacks.
