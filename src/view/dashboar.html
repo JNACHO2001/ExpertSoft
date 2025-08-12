@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" href="/public/style.css"> 
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gestión de Productos</h1>
+            <!-- agregando contenedor para controles con búsqueda y botón nuevo producto -->
+            <div class="header-controls">
+                <div class="search-container">
+                  
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput"
+                        placeholder="Buscar producto, cliente..."
+                       
+                    >
+                </div>
+                <button class="btn-new" >
+                    + Nuevo Producto
+                </button>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Estado</th>
+                        <th>Cliente</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Laptop Dell XPS 13</td>
+                        <td class="price">$1,299.00</td>
+                        <td>5</td>
+                        <td><span class="status activo">Activo</span></td>
+                        <td>María González</td>
+                        <td class="actions">
+                            <button class="btn btn-primary">Editar</button>
+                            <button class="btn btn-secondary">Ver</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>iPhone 15 Pro</td>
+                        <td class="price">$999.00</td>
+                        <td>12</td>
+                        <td><span class="status activo">Activo</span></td>
+                        <td>Carlos Rodríguez</td>
+                        <td class="actions">
+                            <button class="btn btn-primary">Editar</button>
+                            <button class="btn btn-secondary">Ver</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Monitor Samsung 27"</td>
+                        <td class="price">$349.00</td>
+                        <td>8</td>
+                        <td><span class="status pendiente">Pendiente</span></td>
+                        <td>Ana Martínez</td>
+                        <td class="actions">
+                            <button class="btn btn-primary">Editar</button>
+                            <button class="btn btn-secondary">Ver</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Teclado Mecánico</td>
+                        <td class="price">$129.00</td>
+                        <td>0</td>
+                        <td><span class="status inactivo">Inactivo</span></td>
+                        <td>Luis Fernández</td>
+                        <td class="actions">
+                            <button class="btn btn-primary">Editar</button>
+                            <button class="btn btn-secondary">Ver</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Auriculares Sony WH-1000XM4</td>
+                        <td class="price">$279.00</td>
+                        <td>15</td>
+                        <td><span class="status activo">Activo</span></td>
+                        <td>Patricia López</td>
+                        <td class="actions">
+                            <button class="btn btn-primary">Editar</button>
+                            <button class="btn btn-secondary">Ver</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- modal para crear nuevo producto -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Nuevo Producto</h2>
+                <button class="close-btn" ></button>
+            </div>
+            
+            <form id="productForm">
+                <div class="form-group">
+                    <label class="form-label" for="productName">Nombre del Producto</label>
+                    <input type="text" id="productName" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="productPrice">Precio</label>
+                    <input type="number" id="productPrice" class="form-input" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="productQuantity">Cantidad</label>
+                    <input type="number" id="productQuantity" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="productStatus">Estado</label>
+                    <select id="productStatus" class="form-select" required>
+                        <option value="">Seleccionar estado</option>
+                        <option value="activo">Activo</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="inactivo">Inactivo</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="clientName">Nombre del Cliente</label>
+                    <input type="text" id="clientName" class="form-input" required>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-cancel" >Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Crear Producto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+   
+    
+</body>
+</html>
