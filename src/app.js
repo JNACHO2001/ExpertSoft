@@ -9,6 +9,11 @@ app.use(express.json());
 
 app.use("/api/users", usersRoutes);
 
+app.get("/", (req, res) => {
+  res.json({ message: "Servidor preparado" });
+});
+
+
 app.use((req, res) => {
   res.status(404).json({ message: "Ruta no encontrada" });
 });
